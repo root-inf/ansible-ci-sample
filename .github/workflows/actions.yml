@@ -22,5 +22,8 @@ jobs:
       - name: style check 
         run: ansible-lint site.yml
 
+      - name: install collections
+        run: ansible-galaxy install -r collections/requirements.yml
+
       - name: run ansible playbook
         run: ansible-playbook -i 'mycontainer,' -c docker -u root site.yml
