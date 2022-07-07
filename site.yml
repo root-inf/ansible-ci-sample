@@ -3,10 +3,26 @@
   gather_facts: false
 
   tasks:
-    - name: gather facts
-      ansible.builtin.setup:
-      register: ret
+#    - name: gather facts
+#      ansible.builtin.setup:
+#      register: ret
+#
+#    - name: show results
+#      ansible.builtin.debug:
+#        var: ret
 
-    - name: show results
-      ansible.builtin.debug:
-        var: ret
+    - name: install httpd
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+
+    - name: open http/https port
+      ansible.posix.firewalld:
+        service: https
+        permanent: yes
+        state: enabled
+
+    - name: start httpd service
+      ansible.builtin.systemd:
+        state: started
+        name: httpd

@@ -11,19 +11,19 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      - name: Docker run Centos7
+      - name: Docker run Almalinux8
         env:
           DOCKER_REGISTRY_URL: https://hub.docker.com/
         run: sudo docker run -d -t --name=mycontainer almalinux:8
 
       - name: install ansible 
-        run: pip install ansible-lint
+        run: pip install ansible-lint ansible-navigator
 
       - name: style check 
         run: ansible-lint site.yml
 
       - name: install collections
-        run: ansible-galaxy install -r collections/requirements.yml
+        run: ansible-galaxy install -r ./collections/requirements.yml
 
       - name: run ansible playbook
         run: ansible-playbook -i 'mycontainer,' -c docker -u root site.yml
