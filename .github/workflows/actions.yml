@@ -14,7 +14,7 @@ jobs:
       - name: Docker run Centos7
         env:
           DOCKER_REGISTRY_URL: https://hub.docker.com/
-        run: sudo docker run -d -t --name=mycontainer centos:7
+        run: sudo docker run -d -t --name=mycontainer almalinux:8
 
       - name: install ansible 
         run: pip install ansible-lint
