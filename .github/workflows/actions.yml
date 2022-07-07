@@ -11,13 +11,13 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-#      - name: Docker run Centos7
-#        env:
-#          DOCKER_REGISTRY_URL: https://hub.docker.com/
-#        run: sudo docker run -d -t --name=mycontainer centos:7
+      - name: Docker run Centos7
+        env:
+          DOCKER_REGISTRY_URL: https://hub.docker.com/
+        run: sudo docker run -d -t --name=mycontainer centos:7
 
-#      - name: Install Ansible galaxy roles 
-#        run: ansible-galaxy install -r roles/requirements.yml
+      - name: style check 
+        run: ansible-lint site.yml
 
-#      - name: ansible
-#        run: ansible-playbook -i 'mycontainer,' -c docker -u root install.yml
+      - name: run ansible playbook
+        run: ansible-playbook -i 'mycontainer,' -c docker -u root site.yml
