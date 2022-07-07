@@ -14,10 +14,10 @@ jobs:
       - name: Docker run Almalinux8
         env:
           DOCKER_REGISTRY_URL: https://hub.docker.com/
-        run: sudo docker run -d -t --name=mycontainer almalinux:8
+        run: sudo docker run -d -t --name=webserver almalinux:8
 
       - name: install ansible 
-        run: pip install ansible-lint ansible-navigator
+        run: pip install ansible-lint ansible-navigator jinja2
 
       - name: style check 
         run: ansible-lint site.yml
@@ -26,4 +26,4 @@ jobs:
         run: ansible-galaxy install -r ./collections/requirements.yml
 
       - name: run ansible playbook
-        run: ansible-playbook -i 'mycontainer,' -c docker -u root site.yml
+        run: ansible-playbook -i 'webserver,' -c docker -u root site.yml
