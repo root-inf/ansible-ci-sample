@@ -16,6 +16,9 @@ jobs:
           DOCKER_REGISTRY_URL: https://hub.docker.com/
         run: sudo docker run -d -t --name=mycontainer centos:7
 
+      - name: install ansible 
+        run: pip install ansible-lint
+
       - name: style check 
         run: ansible-lint site.yml
 
