@@ -17,7 +17,7 @@ jobs:
         run: sudo docker run -d -t --name=webserver almalinux:8
 
       - name: install ansible 
-        run: pip install ansible-lint ansible-navigator jinja2
+        run: pip install ansible-lint ansible-navigator jinja2==3.0.0
 
       - name: style check 
         run: ansible-lint site.yml
