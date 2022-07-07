@@ -1,0 +1,23 @@
+name: Ansible Playbook
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+#      - name: Docker run Centos7
+#        env:
+#          DOCKER_REGISTRY_URL: https://hub.docker.com/
+#        run: sudo docker run -d -t --name=mycontainer centos:7
+
+#      - name: Install Ansible galaxy roles 
+#        run: ansible-galaxy install -r roles/requirements.yml
+
+#      - name: ansible
+#        run: ansible-playbook -i 'mycontainer,' -c docker -u root install.yml
