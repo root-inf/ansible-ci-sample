@@ -17,7 +17,7 @@ jobs:
       - name: style check 
         run: ansible-lint site.yml
 
-       - name: style check 2
+      - name: style check 2
         run: ansible-navigator lint --ee false site.yml -m stdout
 
  unit-test:
