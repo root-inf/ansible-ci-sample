@@ -16,12 +16,6 @@
         name: httpd
         state: present
 
-    - name: open http/https port
-      ansible.posix.firewalld:
-        service: https
-        permanent: true
-        state: enabled
-
     - name: start httpd service
       ansible.builtin.systemd:
         state: started
