@@ -20,7 +20,7 @@ jobs:
       - name: style check 2
         run: ansible-navigator lint --ee false site.yml -m stdout
 
- unit-test:
+  unit-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
