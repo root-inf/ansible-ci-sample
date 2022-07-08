@@ -9,21 +9,24 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: which python
 
-      - name: Docker run Almalinux8
-        env:
-          DOCKER_REGISTRY_URL: https://hub.docker.com/
-        run: sudo docker run -d -t --name=webserver almalinux:8
-
-      - name: install ansible 
-        run: pip install ansible-lint ansible-navigator jinja2==3.0.0
-
-      - name: style check 
-        run: ansible-lint site.yml
-
-      - name: install collections
-        run: ansible-galaxy install -r ./collections/requirements.yml
-
-      - name: run ansible playbook
-        run: ansible-playbook -i 'webserver,' -c docker -u root site.yml -e ansible_python_interpreter=/usr/bin/python3.6
+#      - name: Run a one-line script
+#        run: echo Hello, world!
+#
+#      - name: Docker run Almalinux8
+#        env:
+#          DOCKER_REGISTRY_URL: https://hub.docker.com/
+#        run: sudo docker run -d -t --name=webserver almalinux:8
+#
+#      - name: install ansible 
+#        run: pip install ansible-lint ansible-navigator jinja2==3.0.0
+#
+#      - name: style check 
+#        run: ansible-lint site.yml
+#
+#      - name: install collections
+#        run: ansible-galaxy install -r ./collections/requirements.yml
+#
+#      - name: run ansible playbook
+#        run: ansible-playbook -i 'webserver,' -c docker -u root site.yml -e ansible_python_interpreter=/usr/bin/python3.6
