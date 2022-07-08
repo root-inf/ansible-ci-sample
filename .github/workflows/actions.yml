@@ -8,10 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run a one-line script
-        run: hostname
-
-      - name: install ansible 
+      - name: install ansible-lint
         run: pip install ansible-lint
 
       - name: style check 

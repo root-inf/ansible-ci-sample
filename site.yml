@@ -5,7 +5,7 @@
   tasks:
     - name: gather facts
       ansible.builtin.setup:
-      register: ret
+      register: ret 
 
     - name: show results
       ansible.builtin.debug:
