@@ -27,3 +27,12 @@ jobs:
 
       - name: run ansible playbook
         run: ansible-playbook -i 'webserver,' -c docker -u root site.yml
+        
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo Hello, world!
