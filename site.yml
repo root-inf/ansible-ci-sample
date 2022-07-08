@@ -19,7 +19,7 @@
     - name: open http/https port
       ansible.posix.firewalld:
         service: https
-        permanent: yes
+        permanent: true
         state: enabled
 
     - name: start httpd service
