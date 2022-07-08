@@ -8,5 +8,5 @@
       register: ret
 
     - name: show results
-     ansible.builtin.debug:
+      ansible.builtin.debug:
         var: ret
