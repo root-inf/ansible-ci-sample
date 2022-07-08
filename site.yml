@@ -4,11 +4,9 @@
 
   tasks:
     - name: gather facts
-      setup:
-      register: ret 
+      ansible.builtin.setup:
+      register: ret
 
     - name: show results
-      debug:
-         var: ret
-
-
+     ansible.builtin.debug:
+        var: ret
