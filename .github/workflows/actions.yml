@@ -9,4 +9,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: style check 
-        run: ansible-lint site.yml
+        run: ansible-navigator lint site.yml --ee false -m stdout
