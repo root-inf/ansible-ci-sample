@@ -8,5 +8,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: style check 
-        run: ansible-navigator lint site.yml --ee false -m stdout
+      - name: run playbook
+        run: ansible-navigator run site.yml -m stdout
