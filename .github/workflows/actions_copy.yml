@@ -1,0 +1,38 @@
+name: Ansible Playbook
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: run the command
+        run: hostname
+
+      - name: install ansible-lint
+        run: pip install ansible-lint
+
+      - name: style check 
+        run: ansible-lint site.yml
+
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: install ansible 
+        run: pip install ansible
+
+      - name: install collections
+        run: ansible-galaxy install -r ./collections/requirements.yml
+
+      - name: Docker run Almalinux8
+        env:
+          DOCKER_REGISTRY_URL: https://hub.docker.com/
+        run: sudo docker run -d -t --name=webserver almalinux:8
+
+      - name: run ansible playbook
+        run: ansible-playbook -i 'webserver,' -c docker -u root site.yml
