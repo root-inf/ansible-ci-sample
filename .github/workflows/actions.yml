@@ -9,7 +9,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Ensure that the playbook pass ansible-lint rules
-        run: |
-          source ~/.venv/python3.9-ansible/bin/activate
-          ansible-lint site.yml --offline
+        run: ansible-navigator lint site.yml
+        # run: |
+        #   source ~/.venv/python3.9-ansible/bin/activate
+        #   ansible-lint site.yml --offline
         # run: ansible-navigator run site.yml -m stdout
