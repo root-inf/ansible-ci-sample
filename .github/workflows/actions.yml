@@ -8,6 +8,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: run playbook
-        # run: ansible-navigator run site.yml -m stdout
-        run: hostname
+      - name: Activate venv
+        run: source ~/.venv/python3.9-ansible/bin/activate
+
+      - name: Ensure that the playbook pass ansible-lint rules
+        run: ansible-lint site.yml
+      # run: ansible-navigator run site.yml -m stdout
