@@ -4,10 +4,10 @@
   gather_facts: false
 
   tasks:
-    - name: gather facts
+    - name: Gather facts
       ansible.builtin.setup:
       register: ret
 
-    - name: show results
+    - name: Show results
       ansible.builtin.debug:
         var: ret
