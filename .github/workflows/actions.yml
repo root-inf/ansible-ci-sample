@@ -15,7 +15,7 @@ jobs:
         #   ansible-lint site.yml --offline
         # run: ansible-navigator run site.yml -m stdout
 
-  unit-test:
+  test:
     needs: lint
     runs-on: self-hosted
     steps:
