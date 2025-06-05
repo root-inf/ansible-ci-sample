@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Activate venv
-        run: source ~/.venv/python3.9-ansible/bin/activate && ansible-lint site.yml
+        run: source ~/.venv/python3.9-ansible/bin/activate && ansible-lint site.yml --offline
 
       # - name: Ensure that the playbook pass ansible-lint rules
       #   run: ansible-lint site.yml
