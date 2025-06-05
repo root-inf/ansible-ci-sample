@@ -1,1 +1,1 @@
-ansible.example.com
+webserver ansible_connection=podman ansible_user=root

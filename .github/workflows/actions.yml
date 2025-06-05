@@ -23,4 +23,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Ensure that the playbook run successful.
-        run: ansible-navigator run site.yml -i 'webserver' -c podman -u root
+        run: ansible-navigator run site.yml -i inventory
