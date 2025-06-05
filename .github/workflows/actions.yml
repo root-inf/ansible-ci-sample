@@ -9,4 +9,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: run playbook
-        run: ansible-navigator run site.yml -m stdout
+        # run: ansible-navigator run site.yml -m stdout
+        run: hostname
