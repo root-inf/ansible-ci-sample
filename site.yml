@@ -4,7 +4,7 @@
   gather_facts: false
 
   tasks:
-    - name: Gather facts 3
+    - name: Gather facts 2
       ansible.builtin.setup:
       register: ret
 
