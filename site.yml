@@ -11,4 +11,4 @@
     - name: Show results
       ansible.builtin.assert:
         that:
-          - ret['ansible_facts']['ansible_fqdnn'] is defined
+          - ret['ansible_facts']['ansible_fqdn'] is defined
