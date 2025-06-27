@@ -10,4 +10,4 @@
 
     - name: Show results
       ansible.builtin.debug:
-        var: ret['ansible_facts']['ansible_fqdn']
+        var: ret['ansible_facts']['ansible_fqdnn']
