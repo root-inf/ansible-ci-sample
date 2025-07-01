@@ -7,12 +7,14 @@ on:
 jobs:
   lint:
     runs-on: self-hosted
+    container: registry.redhat.io/ansible-automation-platform-25/ansible-dev-tools-rhel8:25.2.0-18
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Ensure that the playbook pass ansible-lint rules
-        run: ansible-navigator lint site.yml
+        run: ansible-lint site.yml
+        # run: ansible-navigator lint site.yml
         # run: |
         #   source ~/.venv/python3.9-ansible/bin/activate
         #   ansible-lint site.yml --offline
@@ -26,4 +28,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Ensure that the playbook run successful.
-        run: ansible-navigator run site.yml -i inventory
+        run: ansible-playbook site.yml -i inventory
